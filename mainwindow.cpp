@@ -6,14 +6,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QObject::connect(ui->pushButton, SIGNAL(clicked()),
+            QApplication::instance(), SLOT(quit()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::on_pushButton_clicked()
-{
-    close();
 }
